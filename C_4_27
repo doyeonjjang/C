@@ -1,3 +1,6 @@
+# 8주차 C언어 실습
+  - 8주차 실습1
+  ```c
 #include <stdio.h>
 int factorial(int n)
 {
@@ -14,3 +17,174 @@ int main(void)
     printf("%d!의 값은 %d입니다. \n", n, factorial(n));
     return 0;
 }
+```
+
+ -8주차 실습2
+ ```c
+ #include <stdio.h>
+void printMenu()
+{
+printf("==========================\n");
+printf(" 'c' 섭씨온도에서 화씨온도로 변환\n");
+printf(" 'f' 화씨온도에서 섭씨온도로 변환\n");
+printf(" 'q' 종료\n");
+printf("==========================\n");
+}
+double C2F(double c_temp)
+{
+return 9.0 / 5.0 * c_temp + 32;
+}
+double F2C(double f_temp)
+{
+return (f_temp - 32.0) * 5.0 / 9.0;
+}
+int main(void)
+{
+char choice;
+double temp;
+while (1) {
+printMenu();
+printf("메뉴에서 선택하세요: ");
+choice = getchar();
+if (choice == 'q') break;
+else if (choice == 'c') {
+printf("섭씨온도: ");
+scanf("%lf", &temp);
+printf("화씨온도: %lf \n\n", C2F(temp));
+}
+else if (choice == 'f') {
+printf("화씨온도: ");
+scanf("%lf", &temp);
+printf("섭씨온도: %lf \n\n", F2C(temp));
+}
+getchar();
+}
+return 0;
+}
+```
+
+-8주차 실습3
+```c
+#include <stdio.h>
+
+int factorial(int n)
+{
+int i, result = 1;
+for (i = 1; i <= n; i++)
+result *= i; 
+return result;
+}
+
+int combination(int n, int r)
+{
+return (factorial(n)/(factorial(r) * factorial(n-r)));
+}
+int get_integer(void)
+{
+int n;
+printf("정수를 입력하시오: ");
+scanf("%d", &n);
+return n;
+}
+int main(void)
+{
+int a, b;
+a = get_integer();
+b = get_integer();
+printf("C(%d, %d) = %d \n", a, b, combination(a, b));
+return 0;
+}
+```
+
+-8주차 실습4
+```c
+#include <stdio.h>
+double c_to_f(double c_temp); // 함수 원형
+int main(void)
+{
+printf("섭씨 %lf도는 화씨 %lf입니다. \n", 36.0, c_to_f(36.0));
+return 0;
+}
+double c_to_f(double c_temp)
+{
+return 9.0 / 5.0 * c_temp + 32;
+}
+```
+
+-8주차 실습5
+```c
+#include <stdio.h>
+
+double sub1(double d)
+{
+sub2(100.0);
+}
+double sub2(double d)
+{
+sub1(20.0);
+}
+int main(void)
+{
+return 0;
+}
+```
+
+-8주차 실습6
+```c
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+int i;
+for(i = 0; i < 6; i++)
+printf("%d ", rand());
+return 0;
+}
+```
+
+-8주차 실습7
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#define MAX 45
+int main(void)
+{
+int i;
+srand( (unsigned)time( NULL ) );
+for( i = 0; i < 6; i++ )
+printf("%d ", 1+rand()%MAX );
+return 0;
+}
+```
+
+-8주차 실습8
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include<time.h>
+int coin_toss
+(void);
+int main(void)
+{
+int toss;
+int heads = 0;
+int tails = 0;
+srand((unsigned)time(NULL));
+for (toss = 0; toss < 100; toss++) {
+if
+(coin_toss() == 1)
+heads++;
+else
+tails++;
+}
+printf("동전의 앞면: %d \n", heads);
+printf("동전의 뒷면: %d \n", tails);
+return 0;
+}
+int coin_toss( void )
+{
+int head = rand() % 2;
+return head;
+}
+```
