@@ -1,67 +1,67 @@
 # 8주차 C언어 실습
   - 8주차 실습1
   ```c
-#include <stdio.h>
-int factorial(int n)
-{
+  #include <stdio.h>
+  int factorial(int n)
+  {
     int result = 1;
     for (int i = 1; i <= n; i++)
         result *= i;
     return result;
-}
-int main(void)
-{
+  }
+  int main(void)
+  {
     int n;
     printf("알고 싶은 팩토리얼의 값은? ");
     scanf("%d", &n);
     printf("%d!의 값은 %d입니다. \n", n, factorial(n));
     return 0;
-}
+  }
 ```
 
  -8주차 실습2
  ```c
  #include <stdio.h>
-void printMenu()
-{
-printf("==========================\n");
-printf(" 'c' 섭씨온도에서 화씨온도로 변환\n");
-printf(" 'f' 화씨온도에서 섭씨온도로 변환\n");
-printf(" 'q' 종료\n");
-printf("==========================\n");
-}
-double C2F(double c_temp)
-{
-return 9.0 / 5.0 * c_temp + 32;
-}
-double F2C(double f_temp)
-{
-return (f_temp - 32.0) * 5.0 / 9.0;
-}
-int main(void)
-{
-char choice;
-double temp;
-while (1) {
-printMenu();
-printf("메뉴에서 선택하세요: ");
-choice = getchar();
-if (choice == 'q') break;
-else if (choice == 'c') {
-printf("섭씨온도: ");
-scanf("%lf", &temp);
-printf("화씨온도: %lf \n\n", C2F(temp));
-}
-else if (choice == 'f') {
-printf("화씨온도: ");
-scanf("%lf", &temp);
-printf("섭씨온도: %lf \n\n", F2C(temp));
-}
-getchar();
-}
-return 0;
-}
-```
+ void printMenu()
+ {
+ printf("==========================\n");
+ printf(" 'c' 섭씨온도에서 화씨온도로 변환\n");
+ printf(" 'f' 화씨온도에서 섭씨온도로 변환\n");
+ printf(" 'q' 종료\n");
+ printf("==========================\n");
+ }
+ double C2F(double c_temp)
+ {
+ return 9.0 / 5.0 * c_temp + 32;
+ }
+ double F2C(double f_temp)
+ {
+ return (f_temp - 32.0) * 5.0 / 9.0;
+ }
+ int main(void)
+ {
+ char choice;
+ double temp;
+ while (1) {
+ printMenu();
+ printf("메뉴에서 선택하세요: ");
+ choice = getchar();
+ if (choice == 'q') break;
+ else if (choice == 'c') {
+ printf("섭씨온도: ");
+ scanf("%lf", &temp);
+ printf("화씨온도: %lf \n\n", C2F(temp));
+ }
+ else if (choice == 'f') {
+ printf("화씨온도: ");
+ scanf("%lf", &temp);
+ printf("섭씨온도: %lf \n\n", F2C(temp));
+ }
+ getchar();
+ }
+ return 0;
+ }
+ ```
 
 -8주차 실습3
 ```c
